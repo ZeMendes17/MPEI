@@ -1,0 +1,23 @@
+ function array = geraChavesCarac(N, i_min, i_max, symb, p)
+    % N --> numero de chaves a gerar
+    % i_min e i_max --> valor minimo e maximo de comprimento
+    % symb --> vetor com os parametros a usar nas chaves
+    % p --> vetor com as probabilidades de cada caracter
+
+    size = randi([i_min, i_max],1,N);
+    string = '';
+
+    switch nargin
+        case
+    if nargin < 4
+        symb = ['a':'z' 'A':'B' '0':'9'];
+    end
+    comprimento = randi([i_min, i_max],1,N);
+    array = cell(N,1);
+    for i = 1:N
+        pos = randi([1,length(symb)],1,comprimento(i));
+        word = symb(pos);
+        array{i} = word;
+    end
+end
+
